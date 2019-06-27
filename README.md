@@ -1,2 +1,2 @@
-# morning-code
-repl.it
+# Morning code
+- ruby: repl.it
