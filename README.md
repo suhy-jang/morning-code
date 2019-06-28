@@ -14,15 +14,17 @@
 
 ## Contribute (On window UI, not with command line)
 
-- Go to today coding challenge directory
+1. Go to today coding challenge directory
 
-ex) https://github.com/shjang7/morning-code/tree/master/ruby/[ challenge subject ]
+   ex) https://github.com/shjang7/morning-code/tree/master/ruby/ [ challenge subject ]
 
-- Click the "Create new file"
+2. Click the "Create new file"
 
-- Write file name with "[your name].rb"
+3. Write file name with "[your name].rb"
 
-- Write code in "Edit new file"
+4. Write code in "Edit new file"
 
-- Click the button "Commit new file"
+5. Check you are working on "master" branch
+
+6. Click the button "Commit new file"
 
