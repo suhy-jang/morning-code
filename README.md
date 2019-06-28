@@ -10,3 +10,19 @@
    someone can share previous coding challenge which you unsolved.
    
 3. Make sure you try your best. But if you still stuck, be happy to learn from other's code.
+
+
+## Contribute (On window UI, not with command line)
+
+- Go to today coding challenge directory
+
+ex) https://github.com/shjang7/morning-code/tree/master/ruby/[ challenge subject ]
+
+- Click the "Create new file"
+
+- Write file name with "[your name].rb"
+
+- Write code in "Edit new file"
+
+- Click the button "Commit new file"
+
