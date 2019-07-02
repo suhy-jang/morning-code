@@ -1,20 +1,22 @@
+
 def advanced_quicksort(array)
-  advanced_quicksort_recursive(array, 0, array.length - 1, array.length - 1)
+  advanced_quicksort_recursive(array, 0, array.length - 1)
 end
 
-def advanced_quicksort_recursive(array, i_start, i_end, i_pivot )
+def advanced_quicksort_recursive(array, i_start, i_end )
   return array if i_start >= i_end
   i_lg = i_start
+  pivot = array[i_end]
   i_start.upto(i_end) do |index|
-    if array[index] <= array[i_pivot]
+    if array[index] <= pivot
       array[index], array[i_lg] = array[i_lg], array[index]
       i_lg += 1
     end
   end
   i_lg -= 1
   puts array.join(" ")
-  advanced_quicksort_recursive(array, i_start, i_lg - 1, i_lg - 1)
-  advanced_quicksort_recursive(array, i_lg+1, i_end, i_end)
+  advanced_quicksort_recursive(array, i_start, i_lg - 1)
+  advanced_quicksort_recursive(array, i_lg+1, i_end)
 end
 
 # advanced_quicksort([9, 8, 6, 7, 3, 5, 4, 1, 2])
