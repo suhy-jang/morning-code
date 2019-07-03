@@ -3,23 +3,23 @@ def quicksort_running_time(array)
 end
 
 def get_quicksort_running_time(array)
-  qs = QuickSort.new(array_copy(array))
+  qs = QuickSort.new(copy(array))
   qs.quick_sort
   qs.count
 end
 
 def get_insertion_running_time(array)
-  is = InsertionSort.new(array_copy(array))
+  is = InsertionSort.new(copy(array))
   is.insertion_sort
   is.count
 end
 
-def array_copy(array)
-  array.map{|e| e}
+def copy(argument)
+  argument.map{|e| e}
 end
 
 class QuickSort
-  attr_reader :count
+  attr_reader :count, :array
 
   def initialize(array)
     @array = array
@@ -27,21 +27,22 @@ class QuickSort
   end
 
   def quick_sort
-    quick_sort_recursion(array, 0, array.length - 1)
+    quick_sort_recursive(array, 0, array.length - 1)
   end
 
   def count
     @count
   end
 
-  private
-
   def array
     @array
   end
 
-  def quick_sort_recursion(array, i_start, i_end)
+  private
+
+  def quick_sort_recursive(array, i_start, i_end)
     return array if i_start >= i_end
+
     pivot = array[i_end]
     i_lg = i_start
     i_start.upto(i_end) do |index|
@@ -52,14 +53,13 @@ class QuickSort
       end
     end
     i_lg -= 1
-    quick_sort_recursion(array, i_start, i_lg - 1)
-    quick_sort_recursion(array, i_lg + 1, i_end)
-    @count
+    quick_sort_recursive(array, i_start, i_lg - 1)
+    quick_sort_recursive(array, i_lg + 1, i_end)
   end
 end
 
 class InsertionSort
-  attr_reader :count
+  attr_reader :count, :array
 
   def initialize(array)
     @array = array
@@ -77,14 +77,12 @@ class InsertionSort
       end
       array[mv_i] = last_one
     end
-    @count
+    array
   end
 
   def count
     @count
   end
-
-  private
 
   def array
     @array
