@@ -1,29 +1,35 @@
-
-
 def maximum_time_range(array)
-  # write your code here
-  ranges = get_ranges(array)
-  only_range = Array.new
-  ranges.each do |range|
-    (range[0]...range[1]).each do |time|
-      only_range << time
-    end
-  end
-  only_range = only_range.uniq.sort
+  times = get_times(array)
+  results = get_times_to_range(times)
+  return results.flatten if results.size == 1
   
+  results
+end
+
+def get_times_to_range(times)
   index = 0
   results = Array.new
-  while index < only_range.size do
-    start_index = only_range[index]
-    while index + 1 < only_range.size && only_range[index] + 1 == only_range[index + 1]
+  while index < times.size do
+    start_index = times[index]
+    while index + 1 < times.size && times[index] + 1 == times[index + 1]
       index += 1
     end
-    end_index = only_range[index] + 1
+    end_index = times[index] + 1
     results << [start_index, end_index]
     index += 1
   end
-  return results.flatten if results.size == 1
   results
+end
+
+def get_times(array)
+  ranges = get_ranges(array)
+  times = Array.new
+  ranges.each do |range|
+    (range[0]...range[1]).each do |time|
+      times << time
+    end
+  end
+  times.uniq.sort
 end
 
 def get_ranges(array)
