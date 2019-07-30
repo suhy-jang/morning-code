@@ -16,7 +16,6 @@ def add_two_numbers(l1, l2)
     sum_list = nil
     sum_list_head = nil
     remain = 0
-    i = 0
     until l1.nil? && l2.nil? && remain.zero?
         sum = remain
         sum += l1.val unless l1.nil?
