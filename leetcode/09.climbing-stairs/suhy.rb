@@ -6,7 +6,7 @@
 # @return {Integer}
 
 def climb_stairs(n)
-    memo = Array.new(n)
+    memo = Array.new(n+1)
     climb_stairs_h(n, memo)
 end
 
