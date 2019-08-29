@@ -1,13 +1,16 @@
 # @param {Integer[]} nums
 # @return {Integer[]}
-require 'set'
 def find_disappeared_numbers(nums)
     return [] if nums.empty?
-    set = Set.new(1..nums.size)
+    appears = Array.new(nums.size, 0)
     nums.each do |num|
-        set.delete(num) if set.include? num
+        appears[num-1] -= 1
     end
-    set.to_a
+    rest = Array.new
+    appears.each_with_index do |num, i|
+        rest << (i+1) if num.zero?
+    end
+    rest
 end
 
 input : [1,1]
