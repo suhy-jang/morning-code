@@ -1,5 +1,5 @@
 # Morning code
-- ruby: repl.it
+- repl.it
 - leetcode
 
 1. After coding challenge, you could share solutions with your name. (with master branch)
