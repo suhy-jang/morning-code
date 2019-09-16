@@ -1,10 +1,11 @@
 class Trie
+    attr_accessor :root
 
 =begin
     Initialize your data structure here.
 =end
     def initialize()
-        @memo = Hash.new(false)
+        @root = Node.new
     end
 
 
@@ -14,7 +15,12 @@ class Trie
     :rtype: Void
 =end
     def insert(word)
-        @memo[word] = true
+        curr = @root
+        word.each_char do |c|
+            curr.values[c] = Node.new unless curr.values[c]
+            curr = curr.values[c]
+        end
+        curr.ending = true
     end
 
 
@@ -24,16 +30,24 @@ class Trie
     :rtype: Boolean
 =end
     def search(word)
-        @memo[word]
+        curr = starts_with(word, true)
+        curr.is_a?(Node) && curr.ending
     end
+
 
 =begin
     Returns if there is any word in the trie that starts with the given prefix.
     :type prefix: String
     :rtype: Boolean
 =end
-    def starts_with(prefix)
-        @memo.any? { |word, _| word.start_with? prefix }
+    def starts_with(prefix, return_with_node = false)
+        curr = @root
+        prefix.each_char do |c|
+            return false unless curr.values[c]
+            curr = curr.values[c]
+        end
+        
+        return_with_node ? curr : true
     end
 
 
@@ -44,3 +58,12 @@ end
 # obj.insert(word)
 # param_2 = obj.search(word)
 # param_3 = obj.starts_with(prefix)
+
+class Node
+    attr_accessor :values, :ending
+    
+    def initialize
+        @values = {}
+        @ending = false
+    end
+end
