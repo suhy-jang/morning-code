@@ -14,7 +14,7 @@
 def lowest_common_ancestor(root, p, q)
     return nil if root.nil?
     lca = []
-    (root == p || root == q) ? lca << root : lca << nil
+    lca << ((root == p || root == q) ? root : nil)
     lca << lowest_common_ancestor(root.left, p, q)
     lca << lowest_common_ancestor(root.right, p, q)
     return root if (!!lca[0] && (lca[1] || lca[2])) || (!!lca[1] && !!lca[2])
