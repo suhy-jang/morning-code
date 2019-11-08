@@ -17,12 +17,6 @@ end
 
 def permute(nums)
     output = []
-    
-    nums_list = []
-    nums.each do |num|
-        nums_list.push(num)
-    end
-    n = nums.length
-    backtrack(n, nums_list, output, 0)
+    backtrack(nums.length, Array.new(nums), output, 0)
     output
 end
